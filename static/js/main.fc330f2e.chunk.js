@@ -1,0 +1,2 @@
+(this.webpackJsonpemployeedirectory=this.webpackJsonpemployeedirectory||[]).push([[0],{10:function(e,r,t){"use strict";t.r(r);var c=t(0),n=(t(1),t(3)),o=t.n(n);var s=function(){return Object(c.jsxs)("div",{className:"jumbotron",children:[Object(c.jsx)("h1",{children:"Employee Directory"}),Object(c.jsx)("p",{children:"Search for Colleagues"})]})};var i=function(){return Object(c.jsx)(s,{})};t(9);o.a.render(Object(c.jsx)(i,{}),document.getElementById("root"))}},[[10,1,2]]]);
+//# sourceMappingURL=main.fc330f2e.chunk.js.map
