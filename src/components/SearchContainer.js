@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SearchField from "./SearchField";
-import SearchResults from "./SearchResults";
+import ResultsHeadings from "./ResultsHeadings";
 import API from "../utils/API";
 
 class SearchContainer extends Component {
@@ -30,6 +30,10 @@ class SearchContainer extends Component {
     console.log(this.results)
   };
 
+  sortResults = event => {
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div>
@@ -38,7 +42,7 @@ class SearchContainer extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
-        <SearchResults results={this.state.results} />
+        <ResultsHeadings results={this.state.results} />
       </div>
     );
   }

@@ -2,16 +2,6 @@ import React from "react";
 
 function ResultList({ results }) {
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          <th scope="col">Photo</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Phone Number</th>
-          <th scope="col">Email</th>
-        </tr>
-      </thead>
       <tbody>
       {results.map(result => (
         <tr>
@@ -23,7 +13,6 @@ function ResultList({ results }) {
         </tr>
       ))}
       </tbody>
-    </table>
   );
 }
 
