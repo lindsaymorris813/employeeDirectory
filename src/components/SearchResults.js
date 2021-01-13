@@ -1,14 +1,29 @@
 import React from "react";
 
-function ResultList(props) {
+function ResultList({ results }) {
   return (
-    <ul className="list-group">
-      {props.results.map(result => (
-        <li className="list-group-item" key={result.id}>
-          <img alt={result.title} className="img-fluid" src={result.images.original.url} />
-        </li>
+    <table className="table">
+      <thead>
+        <tr>
+          <th scope="col">Photo</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+      {results.map(result => (
+        <tr>
+        <th scope="row"><img src={result.picture.thumbnail} alt={result.login.uuid} className="img-fluid" /></th>
+        <td>{result.name.first}</td>
+        <td>{result.name.last}</td>
+        <td>{result.phone}</td>
+        <td>{result.email}</td>
+        </tr>
       ))}
-    </ul>
+      </tbody>
+    </table>
   );
 }
 
