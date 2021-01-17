@@ -1,16 +1,15 @@
 import React from "react";
 import SearchResults from "../components/SearchResults";
 
-function ResultHeadings({ results }) {
+function ResultHeadings({ results, headers, sortResults }) {
+
   return (
     <table className="table">
       <thead>
         <tr>
-          <th scope="col">Photo</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Phone Number</th>
-          <th scope="col">Email</th>
+          {headers.map(({ title, width }) => (
+              <th scope="col" style={{width}} className="text-center" onClick={sortResults({title})}>{title}</th>
+          ))}
         </tr>
       </thead>
       <SearchResults results={results}/>

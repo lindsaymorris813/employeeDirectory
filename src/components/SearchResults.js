@@ -5,11 +5,12 @@ function ResultList({ results }) {
       <tbody>
       {results.map(result => (
         <tr>
-        <th scope="row"><img src={result.picture.thumbnail} alt={result.login.uuid} className="img-fluid" /></th>
-        <td>{result.name.first}</td>
-        <td>{result.name.last}</td>
-        <td>{result.phone}</td>
-        <td>{result.email}</td>
+        <th scope="row" className="text-center"><img src={result.picture.thumbnail} alt={result.login.uuid} className="img-fluid" /></th>
+        <td className="text-center">{result.name.first} {result.name.last}</td>
+        <td className="text-center">{result.dob.age}</td>
+        <td className="text-center">{result.phone}</td>
+        <td className="text-center">{result.email}</td>
+        
         </tr>
       ))}
       </tbody>
