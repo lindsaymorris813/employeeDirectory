@@ -8,6 +8,7 @@ class SearchContainer extends Component {
     search: "",
     results: [],
     searchResults: [],
+    sortOrder: "descending",
     headers: [
       {title: "Photo", width: "20%"},
       {title: "Name", width: "30%"},
@@ -46,10 +47,13 @@ class SearchContainer extends Component {
   };
 
   sortResults = (title) => {
-    const sorted = this.state.results.sort((a, b) => {
-      return a.title - b.title;
-    });
-    this.setState({ searchResults: sorted });
+    console.log(title);
+    if (this.state.order === "ascending") {
+      this.setState({ sortOrder: "descending" })
+    } else {
+      this.setState({ sortOrder: "ascending" })
+    }
+
   }
 
   render() {

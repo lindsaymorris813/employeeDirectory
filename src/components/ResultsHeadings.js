@@ -8,7 +8,7 @@ function ResultHeadings({ results, headers, sortResults }) {
       <thead>
         <tr>
           {headers.map(({ title, width }) => (
-              <th scope="col" style={{width}} className="text-center" onClick={sortResults({title})}>{title}</th>
+              <th scope="col" style={{width}} className="text-center" onClick={() => {sortResults({title})}}>{title}</th>
           ))}
         </tr>
       </thead>
