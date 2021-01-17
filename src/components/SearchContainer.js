@@ -139,8 +139,6 @@ class SearchContainer extends Component {
       }
 
     }
-
-    console.log(this.state.results.sort(compareFx));
     this.setState({ searchResults: this.state.results.sort(compareFx) })
   };
 
