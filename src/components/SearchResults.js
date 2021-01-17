@@ -1,6 +1,6 @@
 import React from "react";
 
-function ResultList({ results }) {
+function SearchResults({ results }) {
   return (
       <tbody>
       {results.map(result => (
@@ -17,4 +17,4 @@ function ResultList({ results }) {
   );
 }
 
-export default ResultList;
+export default SearchResults;

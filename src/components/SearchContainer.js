@@ -10,11 +10,11 @@ class SearchContainer extends Component {
     searchResults: [],
     sortOrder: "descending",
     headers: [
-      {title: "Photo", width: "20%"},
-      {title: "Name", width: "30%"},
-      {title: "Age", width: "10%"},
-      {title: "Phone Number", width: "20%"},
-      {title: "Email", width: "20%"},
+      { title: "Photo", width: "20%" },
+      { title: "Name", width: "30%" },
+      { title: "Age", width: "10%" },
+      { title: "Phone Number", width: "20%" },
+      { title: "Email", width: "20%" },
     ]
   };
 
@@ -30,7 +30,7 @@ class SearchContainer extends Component {
   };
 
   handleInputChange = event => {
-    this.setState({ search : event.target.value });
+    this.setState({ search: event.target.value });
     this.searchEmployees();
   };
 
@@ -41,20 +41,109 @@ class SearchContainer extends Component {
   };
 
   searchEmployees = () => {
-    this.setState({ searchResults: this.state.results.filter(find => {
-      return Object.values(find).join("").toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
-    })})
+    this.setState({
+      searchResults: this.state.results.filter(find => {
+        return Object.values(find).join("").toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+      })
+    })
   };
 
   sortResults = (title) => {
-    console.log(title);
-    if (this.state.order === "ascending") {
-      this.setState({ sortOrder: "descending" })
-    } else {
-      this.setState({ sortOrder: "ascending" })
+    const sortColumn = title.toLowerCase();
+    const compareFx = (a, b) => {
+      let compare = 0;
+      if (this.state.sortOrder === "ascending") {
+        this.setState({ sortOrder: "descending" });
+        switch (sortColumn) {
+          case "name":
+            let nameA = a.name.last.toLowerCase();
+            let nameB = b.name.last.toLowerCase();
+            if (nameA > nameB) {
+              compare = 1;
+            } else if (nameA < nameB) {
+              compare = -1
+            }
+            return compare;
+          case "age":
+            let ageA = a.dob.age;
+            let ageB = b.dob.age;
+            if (ageA > ageB) {
+              compare = 1;
+            } else if (ageA < ageB) {
+              compare = -1;
+            }
+            return compare;
+          case "phone number":
+            let phoneA = a.phone;
+            let phoneB = b.phone;
+            if (phoneA > phoneB) {
+              compare = 1;
+            } else if (phoneA < phoneB) {
+              compare = -1;
+            }
+            return compare;
+          case "email":
+            let emailA = a.email;
+            let emailB = b.email;
+            if (emailA > emailB) {
+              compare = 1;
+            } else if (emailA < emailB) {
+              compare = -1;
+            }
+            return compare;
+          default:
+            return;
+        }
+      } else {
+        this.setState({ sortOrder: "ascending" });
+        switch (sortColumn) {
+          case "name":
+            let nameA = a.name.last.toLowerCase();
+            let nameB = b.name.last.toLowerCase();
+            if (nameA > nameB) {
+              compare = -1;
+            } else if (nameA < nameB) {
+              compare = 1
+            }
+            return compare;
+          case "age":
+            let ageA = a.dob.age;
+            let ageB = b.dob.age;
+            if (ageA > ageB) {
+              compare = -1;
+            } else if (ageA < ageB) {
+              compare = 1;
+            }
+            return compare;
+          case "phone number":
+            let phoneA = a.phone;
+            let phoneB = b.phone;
+            if (phoneA > phoneB) {
+              compare = -1;
+            } else if (phoneA < phoneB) {
+              compare = 1;
+            }
+            return compare;
+          case "email":
+            let emailA = a.email;
+            let emailB = b.email;
+            if (emailA > emailB) {
+              compare = -1;
+            } else if (emailA < emailB) {
+              compare = 1;
+            }
+            return compare;
+          default:
+            return;
+        }
+      }
+
     }
 
-  }
+    console.log(this.state.results.sort(compareFx));
+    this.setState({ searchResults: this.state.results.sort(compareFx) })
+  };
+
 
   render() {
     return (
@@ -64,10 +153,10 @@ class SearchContainer extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
-        <ResultsHeadings 
-        results={this.state.searchResults} 
-        headers={this.state.headers}
-        sortResults={this.sortResults}
+        <ResultsHeadings
+          results={this.state.searchResults}
+          headers={this.state.headers}
+          sortResults={this.sortResults}
         />
       </div>
     );
