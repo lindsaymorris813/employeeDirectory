@@ -1,10 +1,11 @@
 import React from "react";
 import SearchResults from "../components/SearchResults";
+import Table from 'react-bootstrap/Table';
 
 function ResultHeadings({ results, headers, sortResults }) {
 
   return (
-    <table className="table">
+    <Table className="table">
       <thead>
         <tr>
           {headers.map(({ title, width }) => (
@@ -13,7 +14,7 @@ function ResultHeadings({ results, headers, sortResults }) {
         </tr>
       </thead>
       <SearchResults results={results}/>
-    </table>
+    </Table>
   );
 }
 

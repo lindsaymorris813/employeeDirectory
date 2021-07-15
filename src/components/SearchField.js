@@ -1,9 +1,9 @@
-import React from "react";
+import "./style.css";
 
 function SearchField({ handleInputChange, handleFormSubmit, search }) {
   return (
     <form>
-      <div className="form-group">
+      <div className="form-group mt-4">
         <input
           onChange={handleInputChange}
           name="search"
@@ -13,7 +13,7 @@ function SearchField({ handleInputChange, handleFormSubmit, search }) {
           id="search"
           value={search}
         />
-        <button onClick={handleFormSubmit} className="btn btn-primary mt-3">
+        <button onClick={handleFormSubmit} className="btn btn-primary mt-3" id="searchBtn">
           Search
             </button>
       </div>

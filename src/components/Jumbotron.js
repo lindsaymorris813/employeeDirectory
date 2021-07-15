@@ -1,10 +1,15 @@
+import Container from "react-bootstrap/Container";
+import "./style.css";
+
 function Jumbotron() {
     return (
-        <div className="jumbotron text-center">
+        <Container id="jumbo">
+        <div className="jumbotron text-center m-4">
         <h1>Employee Directory</h1>
-        <p>Search for Colleagues</p>
+        <h3 className='m-2'>Search for Colleagues</h3>
         <p>Click Column Name to Sort in Ascending or Descending Order</p>
-    </div>
+        </div>
+     </Container>
     );
 }
 
